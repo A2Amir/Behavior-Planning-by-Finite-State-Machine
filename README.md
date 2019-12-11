@@ -63,3 +63,13 @@ We could just count that as 20 but let's say that this machine requires exact ch
 <p align="right"> <img src="./img/7.png" style="right;" alt=" Finite State Machines" width="600" height="400"> </p> 
 
 Finite state machines have the strengths:
+
+* First, finite state machines are very easy to reason about. They are basically self-documenting because they map the logical state of a system directly to the physical state.
+* Next, they are maintainable. If we wanted to tweak this machine so that everything costs a quarter it would be pretty trivial to just add one more state.
+
+The weaknesses of the finite state machine:
+* The primary one being that they are easily abused. If they aren't designed well to begin with or if the problem changes you can easily find yourself saying things like,I hadn't considered that.
+* By adding another state can lead to some sloppy code and sloppy logic, which in practice means that finite state machines can be very difficult to maintain as the states base gets bigger.
+
+## 5.	States for Self Driving Cars
+
