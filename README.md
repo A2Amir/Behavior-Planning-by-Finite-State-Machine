@@ -75,7 +75,7 @@ The weaknesses of the finite state machine:
 
 When we're thinking about a simple vending machine it's easy to enumerate the states. Now let's consider the states we may want to model for car driving on a highway.
 <p align="right"> <img src="./img/8.0.png" style="right;" alt=" 	States for Self Driving Cars
-" width="600" height="300"> </p> 
+" width="600" height="250"> </p> 
 
 The truth is there isn't a single correct set of states to choose from
 
@@ -84,8 +84,27 @@ The truth is there isn't a single correct set of states to choose from
 
 Since we wanted to focus on highway driving, but we still debated what states we should use for our finite state machine. We quickly agreed on five (keep lane, change lane left, change lane right, prepare lane change left and prepare lane change right),  because most of the states in the image above can be thought of as various implementations of the keep lane state.
 
-<p align="right"> <img src="./img/9.png" style="right;" alt=" 	States for Self Driving Cars
-" width="600" height="300"> </p> 
+<p align="right"> <img src="./img/8.png" style="right;" alt=" 	States for Self Driving Cars
+" width="600" height="250"> </p> 
+
+We did decide to use these states for these lessons.When we only have five states plus a ready state,the finite state machine looks like below.
+
+<p align="right"> <img src="./img/9.0.png" style="right;" alt=" States for Self Driving Cars" width="600" height="400"> </p> 
+
+
+we should probably clarify what we mean by these states: 
+
+* Let‘s assume that we are in the keep lane state. let me explain what this state means. The lane keep state attempts to stay in the current lane by staying near the center line for that lane. So thinking in freenet coordinates, we might just say that target d for the vehicle is whatever the d for the lane is and for the s direction, keep lane state attempts to drive at the vehicle's target speed when that's feasible, but when it's not, it will try to drive at whatever speed is safest for the lane.
+
+* For lane changes the goal is to move from the initial lane to the target lane. The d behavior is what you might expect to move left or right as appropriate. the target d is the d for the corresponding lane to the left or right of the ego's current lane and for s, the same rules as lane keeping apply, the vehicle will try to drive at the target speed,but if that's not feasible, then it will drive at whatever speed is safe for the initial lane.
+
+
+
+* to prepare for a lane change left or right, which means in the d directions we still can stay in the current lane but in the s direction we try to match the position and speed of some gap in one of the adjacent lanes. This is also when we would turn on the appropriate signal.
+
+Note that the only way to change lanes is to first prepare for a lane change.Let's see what that would look like below:
+
+<p align="right"> <img src="./img/0.gif" style="right;" alt=" States for Self Driving Cars" width="600" height="400"> </p> 
 
 
 
