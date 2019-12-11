@@ -106,6 +106,14 @@ Note that the only way to change lanes is to first prepare for a lane change.Let
 
 <p align="right"> <img src="./img/0.gif" style="right;" alt=" States for Self Driving Cars" width="600" height="400"> </p> 
 
+### 5.1.	Inputs to Transition Functions
 
+We just saw in the prevoius section how the states we choose to use can impact the behavior of the vehicle. But deciding <b>how those states transition and what inputs the transition functions use is crucial to the actual implementation of a finite-state machine</b>.
+
+For the example with the vending machine, the only input was the coin. The self-driving car is more complicated. Now the question is What data will we need to pass to our transition functions as input?
+
+<p align="right"> <img src="./img/10.png" style="right;" alt=" Inputs to Transition Functions" width="600" height="400"> </p> 
+
+The answer is, we have to pass all of data (Prediction, Map, Speed Limit, Localization Data, Current State) into the transition function.
 
 
