@@ -27,7 +27,7 @@ Look at the picture below and 5 potential json representations of output and see
 <p align="right"> <img src="./img/2.png" style="right;" alt=" the fastest time scales" width="600" height="400"> </p> 
 
 
-<p align="right"> <img src="./img/3.png" style="right;" alt="potential json representations of output" > </p> 
-To see 3 potential json representations of output ckick [here](https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/img/4.png)
+<p align="center"> <img src="./img/3.png" style="center;" alt="potential json representations of output" > </p> 
+To see 3 potential json representations of output ckick  <a href="https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/img/4.png" rel="Here">Here</a>
 
 
