@@ -73,3 +73,20 @@ The weaknesses of the finite state machine:
 
 ## 5.	States for Self Driving Cars
 
+When we're thinking about a simple vending machine it's easy to enumerate the states. Now let's consider the states we may want to model for car driving on a highway.
+<p align="right"> <img src="./img/8.0.png" style="right;" alt=" 	States for Self Driving Cars
+" width="600" height="300"> </p> 
+
+The truth is there isn't a single correct set of states to choose from
+
+* On one hand we want to keep our state space as small as possible for maintainability reasons,
+* On the other hand we want to make sure we have enough logical States to actually represent all the physical states that we care about.
+
+Since we wanted to focus on highway driving, but we still debated what states we should use for our finite state machine. We quickly agreed on five (keep lane, change lane left, change lane right, prepare lane change left and prepare lane change right),  because most of the states in the image above can be thought of as various implementations of the keep lane state.
+
+<p align="right"> <img src="./img/9.png" style="right;" alt=" 	States for Self Driving Cars
+" width="600" height="300"> </p> 
+
+
+
+
