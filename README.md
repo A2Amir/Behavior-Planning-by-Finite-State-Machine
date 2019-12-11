@@ -92,7 +92,7 @@ We did decide to use these states for these lessons.When we only have five state
 <p align="right"> <img src="./img/9.0.png" style="right;" alt=" States for Self Driving Cars" width="600" height="400"> </p> 
 
 
-we should probably clarify what we mean by these states: 
+We should probably clarify what we mean by these states: 
 
 * Let‘s assume that we are in the keep lane state. let me explain what this state means. The lane keep state attempts to stay in the current lane by staying near the center line for that lane. So thinking in freenet coordinates, we might just say that target d for the vehicle is whatever the d for the lane is and for the s direction, keep lane state attempts to drive at the vehicle's target speed when that's feasible, but when it's not, it will try to drive at whatever speed is safest for the lane.
 
