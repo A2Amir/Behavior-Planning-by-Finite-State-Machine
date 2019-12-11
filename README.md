@@ -42,3 +42,24 @@ The responsibilities of the behavior module are to suggest maneuvers which are f
 
 The approach to behavior planning we are going to teach in is the same one used by most of the vehicles, including the winning one in the DARPA Urban Challenge. In fact, it's the approach to behavior planning that Mercedes used in their Bertha Benz Drive,which you can see is capable of handling complex traffic situations like navigating intersections and dense urban traffic.
 
+## 4.	Finite State Machines
+
+In this section I am going to teach an approach to behavior planning that uses something called a Finite State Machine to solve the behavior planning problem. A Finite State Machine makes decisions based on a finite set of discrete states. In the example below five. When initialized, a Finite State Machine begins in some start state let's call it S0.
+
+<p align="right"> <img src="./img/6.png" style="right;" alt=" Finite State Machines" width="600" height="400"> </p> 
+
+Any pair of states within the finite state machine can be connected by one or more transitions and sometimes there is a transition back to the same state, which is called a **Self Transition**.
+
+Not all transitions are necessarily possible. For example, S4 doesn't transition to any other state, which in the language of finite state machines called an **Accepting State**. For non-accepting states that can often be multiple potential successor states.
+
+To decide which state to transition to next,a Finite State Machine needs to handle some sort of input and then use a state transition function to decide what state to go next.
+
+We want to formalize what a Finite State Machine is,with the help of a simple example. Let's consider a simple vending machine where everything costs 20 cents and let's say that this vending machine only takes nickels and dimes but nothing larger or smaller.
+Then we can model the state of this vending machine by the amount of money that's been deposited.
+
+The start state would be zero cents and from this date there are two things that can happen. We could put in a nickel,which would make the state five cents or we could put in a dime to take the state to 10 cents. The rest of the transitions are fairly straightforward until we think about what to do if we are in the 15 cent state and someone puts in a dime.
+We could just count that as 20 but let's say that this machine requires exact change so that a dime would just fall through and come out of the little tray at the bottom of the machine. As you can see, finite state machines are pretty straightforward conceptually.
+
+<p align="right"> <img src="./img/7.png" style="right;" alt=" Finite State Machines" width="600" height="400"> </p> 
+
+Finite state machines have the strengths:
