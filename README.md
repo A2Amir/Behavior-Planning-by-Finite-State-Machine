@@ -158,5 +158,43 @@ def transition_function(predictions, current_fsm_state, current_pose, cost_funct
 
 
 ~~~
-what are these cost functions and how do we create them? In the next section we are going to explain and create them. 
+What are these cost functions and how do we create them? In the next section we are going to explain and create them. 
+
+#### 5.2.1.	Cost Function - Speed Penalty
+
+A key part of getting transitions to happen when we want them to is the design of reasonable cost functions. We want to penalize and reward the right things. I'm going to work through an example of one way you might think about designing a cost function. Let's consider how we would design a cost function for vehicle speed.
+
+On one hand, we want to get to our destination quickly. 
+On the other hand,we don't want to break the law.
+
+An essential quantity we have to control is the desired velocity of the car. Some velocities are more beneficial, some are even illegal. Let's fill in the graph below and try to assign some costs to every velocity.
+
+For the sake of simplicity:
+
+* We assume that all of the cost functions will have an output between zero and one.
+
+* We will adjust the importance of each cost function later by adjusting the weights.
+
+Let's draw the speed limit for the road we are on at point C. Well, we know that if we're going well above the speed limit that should be maximum cost (D) and maybe we want to set an ideal zero cost speed(B) that's slightly below the speed limit so that we have some buffer and then we can think about how much we want to penalize not moving at all.
+Obviously, not moving is bad, but maybe not as bad as breaking the speed limit, we would put it at point A.
+
+We can again arbitrarily connect these points with linear function and the flat maximum cost for anything above the speed limit. 
+
+<p align="right"> <img src="./img/9.png" style="right;" alt="Cost Function - Speed Penalty" width="600" height="400"> </p> 
+
+
+Now, in practice, we might actually want to parametrize some of these quantities so that we could later adjust them until we got the right behavior.
+
+* first, we might define a parameter called Stop Cost for the zero-velocity case
+* A parameter called buffer velocity which would probably be a few miles per hour.
+
+Then, our overall cost function has three domains:
+
+* If we're going less than the target speed, which has the cost function in the yellow box.
+
+* If we are above the speed limit,the cost is in the red box.
+
+* if we are between, the cost would look like in the ping box. 
+
+<p align="right"> <img src="./img/10.png" style="right;" alt="Cost Function - Speed Penalty" width="600" height="400"> </p> 
 
