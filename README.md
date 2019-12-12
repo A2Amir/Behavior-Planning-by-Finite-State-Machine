@@ -194,7 +194,29 @@ Then, our overall cost function has three domains:
 
 * If we are above the speed limit,the cost is in the red box.
 
-* if we are between, the cost would look like in the ping box. 
+* If we are between, the cost would look like in the ping box. 
 
 <p align="right"> <img src="./img/10.png" style="right;" alt="Cost Function - Speed Penalty" width="600" height="400"> </p> 
+
+
+#### 5.2.2.	Cost Function - Lane Change Penalty
+
+In the image below, the blue self driving car (bottom left) is trying to get to the goal (gold star). It's currently in the correct lane but the green car is going very slowly, so it considers whether it should perform a lane change (LC) or just keep lane (KL). These options are shown as lighter blue vehicles with a dashed outline.
+
+<p align="right"> <img src="./img/11.png" style="right;" alt="Cost Function - Lane Change Penalty" width="600" height="200"> </p> 
+
+If we want to design a cost function that deals with lane choice, it will be helpful to establish what the relevant variables are. In this case, we can define:
+	
+* Δs=s<sub>G</sub> - s: how much distance the vehicle will have before it has to get into the goal lane.
+
+When we're far from the goal we have lots of time to get into the goal lane. As we get closer things get more urgent. Mathematically we could say "costs associated with lane choice should be inversely proportional to delta s".
+
+*	Δd=d<sub>G</sub> −d<sub>LC/KL</Sub>: the lateral distance between the goal lane and the options being considered. In this case Δd<sub>KL</sub>=d<sub>G</sub>−d<sub>KL</sub> would be zero and Δd<sub>LC</sub>=d<sub>G</sub>−d<sub>CL</sub> would not. 
+
+In general we'd prefer to be closer to the goal lane. Which means the cost should be bigger when delta d is bigger. Mathematically we could say "Cost associated with lane choice should be proportional to delta d.
+
+Therfore we want a cost function that penalizes large ∣Δd∣ and we want that penalty to be bigger when Δs is small and we want also to make sure that the maximum cost of this cost function never exceeds one and that the minimum never goes below zero, which shown below meet the criteria we want.
+
+
+
 
