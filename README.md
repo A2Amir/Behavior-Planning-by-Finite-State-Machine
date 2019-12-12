@@ -328,7 +328,7 @@ For acceleration, we'd first want to make sure we only consider behaviors that t
 
 Consider a merge onto a highway like below, for example. This is a potentially dangerous situation where we really want to get up to traffic speed as quickly as possible. the cost function at point 3,4,5 may become more relevant than it normally is.
 
-<p align="right"> <img src="./img/15.png" style="right;" alt="difficulties associated with cost functions design " width="600" height="250"> </p> 
+<p align="right"> <img src="./img/16.png" style="right;" alt="difficulties associated with cost functions design " width="600" height="250"> </p> 
 
 It's pretty hard to avoid this exploding complexity when using finite state machines. Partially that's because of the finite state machine itself, but we're also trying to solve a very hard problem and
 some complexity is unavoidable no matter what solution approach you take.
