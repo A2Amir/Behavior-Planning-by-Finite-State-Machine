@@ -89,7 +89,7 @@ Since we wanted to focus on highway driving, but we still debated what states we
 
 We did decide to use these states for these lessons.When we only have five states plus a ready state,the finite state machine looks like below.
 
-<p align="right"> <img src="./img/9.0.png" style="right;" alt=" States for Self Driving Cars" width="600" height="300"> </p> 
+<p align="right"> <img src="./img/9.0.png" style="right;" alt=" States for Self Driving Cars" width="600" height="350"> </p> 
 
 
 We should probably clarify what we mean by these states: 
