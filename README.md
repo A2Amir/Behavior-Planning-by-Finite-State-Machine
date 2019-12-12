@@ -84,7 +84,7 @@ The truth is there isn't a single correct set of states to choose from
 
 Since we wanted to focus on highway driving, but we still debated what states we should use for our finite state machine. We quickly agreed on five (keep lane, change lane left, change lane right, prepare lane change left and prepare lane change right),  because most of the states in the image above can be thought of as various implementations of the keep lane state.
 
-<p align="right"> <img src="./img/8.png" style="right;" alt=" 	States for Self Driving Cars
+<p align="right"> <img src="./img/8.1.png" style="right;" alt=" 	States for Self Driving Cars
 " width="600" height="250"> </p> 
 
 We did decide to use these states for these lessons.When we only have five states plus a ready state,the finite state machine looks like below.
@@ -112,7 +112,7 @@ We just saw in the prevoius section how the states we choose to use can impact t
 
 For the example with the vending machine, the only input was the coin. The self-driving car is more complicated. Now the question is What data will we need to pass to our transition functions as input?
 
-<p align="right"> <img src="./img/10.png" style="right;" alt=" Inputs to Transition Functions" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/8.png" style="right;" alt=" Inputs to Transition Functions" width="600" height="250"> </p> 
 
 The answer is, we have to pass all of data (Prediction, Map, Speed Limit, Localization Data, Current State) into the transition function.
 
