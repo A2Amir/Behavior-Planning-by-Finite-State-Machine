@@ -217,7 +217,7 @@ In general we'd prefer to be closer to the goal lane. Which means the cost shoul
 
 Therfore we want a cost function that penalizes large ∣Δd∣ and we want that penalty to be bigger when Δs is small and we want also to make sure that the maximum cost of this cost function never exceeds one and that the minimum never goes below zero, which shown below meet the criteria we want.
 
-<p align="right"> <img src="./img/12.png" style="right;" alt="Cost Function - Lane Change Penalty" width="600" height="200"> </p> 
+<p align="right"> <img src="./img/12.png" style="right;" alt="Cost Function - Lane Change Penalty" width="300" height="100"> </p> 
 
 In this example, we found that the ratio ∣Δd∣/Δs was important. If we call that ratio x we can then use that ratio in any function with bounded range. These functions tend to be useful when designing cost functions. These types of functions are called Sigmoid Functions. You can learn more in the [Wikipedia article](https://en.wikipedia.org/wiki/Sigmoid_function) if you're interested.
 
