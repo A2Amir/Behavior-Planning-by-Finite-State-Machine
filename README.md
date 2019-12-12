@@ -223,5 +223,34 @@ In this example, we found that the ratio ∣Δd∣/Δs was important. If we call
 
 #### 5.2.3.	Implement Lane Change Penalty in C++
 
+We designed a cost function to choose a lane when trying to reach a goal in highway driving:
+
+ <p align="right"> <img src="./img/12.png" style="right;" alt="Cost Function - Lane Change Penalty" width="300" height="100"> </p> 
+
+Here, Δd was the lateral distance between the goal lane and the final chosen lane, and Δs was the longitudinal distance from the vehicle to the goal but one important change, the finite state machine we use for vehicle behavior includes states for planning a lane change right or left (PLCR or PLCL), and the cost function should incorporate this information. We will provide the following four inputs to the function:
+* Intended lane: the intended lane for the given behavior. For PLCR, PLCL, LCR, and LCL, this would be the one lane over from the current lane.
+* Final lane: the immediate resulting lane of the given behavior. For LCR and LCL, this would be one lane over.
+* The Δs distance to the goal.
+* The goal lane.
+We should change ∣Δd∣ in the equation above so that it satisifes:
+
+* ∣Δd∣ is smaller as both intended lane and final lane are closer to the goal lane. 
+* The cost function provides different costs for each possible behavior: KL, PLCR/PLCL, LCR/LCL. 
+* The values produced by the cost function are in the range 0 to 1.
+
+The possible solution for satisfiying the providing information is shown below:
+
+~~~c++
+double goal_distance_cost(int goal_lane, int intended_lane, int final_lane, 
+                          double distance_to_goal) {
+  // The cost increases with both the distance of intended lane from the goal
+  //   and the distance of the final lane from the goal. The cost of being out 
+  //   of the goal lane also becomes larger as the vehicle approaches the goal.
+  int delta_d = 2.0 * goal_lane - intended_lane - final_lane;
+  double cost = 1 - exp(-(std::abs(delta_d) / distance_to_goal));
+
+  return cost;
+}
+~~~
 
 
