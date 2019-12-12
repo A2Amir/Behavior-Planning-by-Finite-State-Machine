@@ -221,7 +221,7 @@ Therfore we want a cost function that penalizes large ∣Δd∣ and we want that
 
 In this example, we found that the ratio ∣Δd∣/Δs was important. If we call that ratio x we can then use that ratio in any function with bounded range. These functions tend to be useful when designing cost functions. These types of functions are called Sigmoid Functions. You can learn more in the [Wikipedia article](https://en.wikipedia.org/wiki/Sigmoid_function) if you're interested.
 
-#### 5.2.3.	Implement Lane Change Penalty in C++
+#### 5.2.3.	Implementing [the Lane Change Cost Function](https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/C%2B%2B/CostLaneChange.cpp) in C++
 
 We designed a cost function to choose a lane when trying to reach a goal in highway driving:
 
@@ -253,6 +253,35 @@ double goal_distance_cost(int goal_lane, int intended_lane, int final_lane,
 
   return cost;
 }
+~~~
+
+#### 5.2.4.Implementing [the Speed Cost Function](https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/C%2B%2B/CostSpeed.cpp) in C++
+In most situations, a single cost function will not be sufficient to produce complex vehicle behavior. The goal with this section is to create a cost function that would make the vehicle drive in the fastest possible lane, given several behavior options. We will provide the following four inputs to the function:
+
+* Target speed: Currently set as 10 (unitless), the speed at which you would like the vehicle to travel.
+* Intended lane: the intended lane for the given behavior. For PLCR, PLCL, LCR, and LCL, this would be the one lane over from the current lane.
+* Final lane: the immediate resulting lane of the given behavior. For LCR and LCL, this would be one lane over.
+* A vector of lane speeds, based on traffic in that lane: {6, 7, 8, 9}.
+
+The cost function should satisify:
+
+* The cost decreases as both intended lane and final lane are higher speed lanes.
+* The cost function provides different costs for each possible behavior: KL, PLCR/PLCL, LCR/LCL.
+* The values produced by the cost function are in the range 0 to 1.
+
+One possible solution for the cost function is the following:
+~~~c++
+double inefficiency_cost(int target_speed, int intended_lane, int final_lane, 
+                         const std::vector<int> &lane_speeds) {
+  // Cost becomes higher for trajectories with intended lane and final lane 
+  //   that have traffic slower than target_speed.
+  double speed_intended = lane_speeds[intended_lane];
+  double speed_final = lane_speeds[final_lane];
+  double cost = (2.0*target_speed - speed_intended - speed_final)/target_speed;
+
+  return cost;
+}
+
 ~~~
 
 
