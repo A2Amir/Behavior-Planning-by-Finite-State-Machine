@@ -217,7 +217,7 @@ In general we'd prefer to be closer to the goal lane. Which means the cost shoul
 
 Therfore we want a cost function that penalizes large ∣Δd∣ and we want that penalty to be bigger when Δs is small and we want also to make sure that the maximum cost of this cost function never exceeds one and that the minimum never goes below zero, which shown below meet the criteria we want.
 
-<p align="right"> <img src="./img/12.png" style="right;" alt="Cost Function - Lane Change Penalty" width="300" height="100"> </p> 
+<p align="right"> <img src="./img/12.png" style="right;" alt="Cost Function - Lane Change Penalty" width="250" height="100"> </p> 
 
 In this example, we found that the ratio ∣Δd∣/Δs was important. If we call that ratio x we can then use that ratio in any function with bounded range. These functions tend to be useful when designing cost functions. These types of functions are called Sigmoid Functions. You can learn more in the [Wikipedia article](https://en.wikipedia.org/wiki/Sigmoid_function) if you're interested.
 
@@ -225,13 +225,15 @@ In this example, we found that the ratio ∣Δd∣/Δs was important. If we call
 
 We designed a cost function to choose a lane when trying to reach a goal in highway driving:
 
- <p align="right"> <img src="./img/12.png" style="right;" alt="Cost Function - Lane Change Penalty" width="300" height="100"> </p> 
+ <p align="right"> <img src="./img/12.png" style="right;" alt="Cost Function - Lane Change Penalty" width="250" height="100"> </p> 
 
 Here, Δd was the lateral distance between the goal lane and the final chosen lane, and Δs was the longitudinal distance from the vehicle to the goal but one important change, the finite state machine we use for vehicle behavior includes states for planning a lane change right or left (PLCR or PLCL), and the cost function should incorporate this information. We will provide the following four inputs to the function:
 * Intended lane: the intended lane for the given behavior. For PLCR, PLCL, LCR, and LCL, this would be the one lane over from the current lane.
 * Final lane: the immediate resulting lane of the given behavior. For LCR and LCL, this would be one lane over.
 * The Δs distance to the goal.
 * The goal lane.
+
+
 We should change ∣Δd∣ in the equation above so that it satisifes:
 
 * ∣Δd∣ is smaller as both intended lane and final lane are closer to the goal lane. 
