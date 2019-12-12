@@ -24,7 +24,7 @@ We will start by doing a brief introduction where you'll learn more about the de
 ## 2.	Understanding Output
 It's possible to suggest a wide variety of behaviors by specifying only a few quantities. For example by specifying only a target lane, a target vehicle (to follow), a target speed, and a time to reach these targets, we can make suggestions as nuanced as "stay in your lane but get behind that vehicle in the right lane so that you can pass it when the gap gets big enough."
 Look at the picture below and 5 potential json representations of output and see the json representation match with the corresponding verbal description.
-<p align="right"> <img src="./img/2.png" style="right;" alt=" the fastest time scales" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/2.png" style="right;" alt=" the fastest time scales" width="600" height="300"> </p> 
 
 
 <p align="center"> <img src="./img/3.png" style="center;" alt="potential json representations of output" > </p> 
@@ -35,18 +35,18 @@ To see 3 potential json representations of output ckick  <a href="https://github
 ## 3.	The Behavior Problem
 The behavior planner is currently a black box, which takes as input a map of the world,a route to the destinations,and predictions about what other static and dynamic obstacles are likely to do and it produces as output a adjusted maneuver for the vehicle which the trajectory planner is responsible for reaching collision-free, smooth, and safe.The goal of this repository is to open up this black box and learn how to implement a behavior planner.
 
-<p align="right"> <img src="./img/5.png" style="right;" alt=" The Behavior Problem" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/5.png" style="right;" alt=" The Behavior Problem" width="600" height="300"> </p> 
 
  
 The responsibilities of the behavior module are to suggest maneuvers which are feasible, as safe as possible, legal, and efficient. What the behavior planner is not responsible for are execution details and collision avoidance.
 
 The approach to behavior planning we are going to teach in is the same one used by most of the vehicles, including the winning one in the DARPA Urban Challenge. In fact, it's the approach to behavior planning that Mercedes used in their Bertha Benz Drive,which you can see is capable of handling complex traffic situations like navigating intersections and dense urban traffic.
 
-## 4.	Finite State Machines
+## 4.Finite State Machines
 
 In this section I am going to teach an approach to behavior planning that uses something called a Finite State Machine to solve the behavior planning problem. A Finite State Machine makes decisions based on a finite set of discrete states. In the example below five. When initialized, a Finite State Machine begins in some start state let's call it S0.
 
-<p align="right"> <img src="./img/6.png" style="right;" alt=" Finite State Machines" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/6.png" style="right;" alt=" Finite State Machines" width="600" height="300"> </p> 
 
 Any pair of states within the finite state machine can be connected by one or more transitions and sometimes there is a transition back to the same state, which is called a **Self Transition**.
 
@@ -71,7 +71,7 @@ The weaknesses of the finite state machine:
 * The primary one being that they are easily abused. If they aren't designed well to begin with or if the problem changes you can easily find yourself saying things like,I hadn't considered that.
 * By adding another state can lead to some sloppy code and sloppy logic, which in practice means that finite state machines can be very difficult to maintain as the states base gets bigger.
 
-## 5.	States for Self Driving Cars
+## 5.States for Self Driving Cars
 
 When we're thinking about a simple vending machine it's easy to enumerate the states. Now let's consider the states we may want to model for car driving on a highway.
 <p align="right"> <img src="./img/8.0.png" style="right;" alt=" 	States for Self Driving Cars
@@ -89,7 +89,7 @@ Since we wanted to focus on highway driving, but we still debated what states we
 
 We did decide to use these states for these lessons.When we only have five states plus a ready state,the finite state machine looks like below.
 
-<p align="right"> <img src="./img/9.0.png" style="right;" alt=" States for Self Driving Cars" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/9.0.png" style="right;" alt=" States for Self Driving Cars" width="600" height="300"> </p> 
 
 
 We should probably clarify what we mean by these states: 
@@ -106,7 +106,7 @@ Note that the only way to change lanes is to first prepare for a lane change.Let
 
 <p align="right"> <img src="./img/0.gif" style="right;" alt=" States for Self Driving Cars" width="600" height="400"> </p> 
 
-### 5.1.	Inputs to Transition Functions
+### 5.1.Inputs to Transition Functions
 
 We just saw in the prevoius section how the states we choose to use can impact the behavior of the vehicle. But deciding <b>how those states transition and what inputs the transition functions use is crucial to the actual implementation of a finite-state machine</b>.
 
@@ -180,7 +180,7 @@ Obviously, not moving is bad, but maybe not as bad as breaking the speed limit, 
 
 We can again arbitrarily connect these points with linear function and the flat maximum cost for anything above the speed limit. 
 
-<p align="right"> <img src="./img/9.png" style="right;" alt="Cost Function - Speed Penalty" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/9.png" style="right;" alt="Cost Function - Speed Penalty" width="600" height="300"> </p> 
 
 
 Now, in practice, we might actually want to parametrize some of these quantities so that we could later adjust them until we got the right behavior.
