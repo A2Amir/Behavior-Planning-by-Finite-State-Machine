@@ -330,6 +330,33 @@ Consider a merge onto a highway like below, for example. This is a potentially d
 
 <p align="right"> <img src="./img/16.png" style="right;" alt="difficulties associated with cost functions design " width="600" height="250"> </p> 
 
-It's pretty hard to avoid this exploding complexity when using finite state machines. Partially that's because of the finite state machine itself, but we're also trying to solve a very hard problem and
-some complexity is unavoidable no matter what solution approach you take.
+It's pretty hard to avoid this exploding complexity when using finite state machines. Partially that's because of the finite state machine itself, but we're also trying to solve a very hard problem and some complexity is unavoidable no matter what solution approach you take.
+
+#### 6.1.New Cost Functions
+	
+As before explained, we might want to define several cost functions associated with vehicle Classess (Feasibility, Safety, Lagality, Comfort, Efficeiency), in which case we might have:
+
+* A cost function like below that penalizes trajectories that do not stay near the center of the lane.
+
+<p align="center"> <img src="./img/17.png" style="right;" alt="New Cost Functions " width="200" height="100"> </p> 
+
+* A cost function like below that penalizes trajectories that attempt to accelerate at a rate which is not possible for the vehicle.
+
+<p align="center"> <img src="./img/18.png" style="right;" alt="New Cost Functions " width="200" height="150"> </p> 
+
+* A cost function like below that rewards trajectories that stay near the target lane.
+
+<p align="center"> <img src="./img/19.png" style="right;" alt="New Cost Functions " width="250" height="100"> </p> 
+
+* A cost function like below that penalizes trajectories that drive off the road.
+
+<p align="center"> <img src="./img/20.png" style="right;" alt="New Cost Functions " width="200" height="180"> </p> 
+
+A cost function like below that penalizes trajectories that exceed the speed limit.
+
+<p align="center"> <img src="./img/20.png" style="right;" alt="New Cost Functions " width="200" height="150"> </p> 
+
+
+
+
 
