@@ -378,5 +378,7 @@ In this section ist implemented a behavior planner and cost functions for highwa
 * "KL" - Keep Lane
 * "LCL" / "LCR"- Lane Change Left / Lane Change Right
 * "PLCL" / "PLCR" - Prepare Lane Change Left / Prepare Lane Change Right
+
+
 The objective is to navigate through traffic to the goal in as little time as possible. Note that the goal lane and s value, as well as the traffic speeds for each lane, are set in main.cpp. Since the goal is in the slowest lane, in order to get the lowest time, one of the two cost functions that are implemented in the previous section and weights to drive in faster lanes when appropriate will be used. Two suggested cost functions have been implemented based on previous section, in cost.cpp.
 
