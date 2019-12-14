@@ -52,12 +52,12 @@ Any pair of states within the finite state machine can be connected by one or mo
 
 Not all transitions are necessarily possible. For example, S4 doesn't transition to any other state, which in the language of finite state machines called an **Accepting State**. For non-accepting states that can often be multiple potential successor states.
 
-To decide which state to transition to next,a Finite State Machine needs to handle some sort of input and then use a state transition function to decide what state to go next.
+To decide which state to transition to next,a Finite State Machine needs to handle **some sort of input** and then use **a state transition function** to decide what state to go next.
 
 We want to formalize what a Finite State Machine is,with the help of a simple example. Let's consider a simple vending machine where everything costs 20 cents and let's say that this vending machine only takes nickels and dimes but nothing larger or smaller.
 Then we can model the state of this vending machine by the amount of money that's been deposited.
 
-The start state would be zero cents and from this date there are two things that can happen. We could put in a nickel,which would make the state five cents or we could put in a dime to take the state to 10 cents. The rest of the transitions are fairly straightforward until we think about what to do if we are in the 15 cent state and someone puts in a dime.
+The start state would be zero cents and from this state there are two things that can happen. We could put in a nickel,which would make the state five cents or we could put in a dime to take the state to 10 cents. The rest of the transitions are fairly straightforward until we think about what to do if we are in the 15 cent state and someone puts in a dime.
 We could just count that as 20 but let's say that this machine requires exact change so that a dime would just fall through and come out of the little tray at the bottom of the machine. As you can see, finite state machines are pretty straightforward conceptually.
 
 <p align="right"> <img src="./img/7.png" style="right;" alt=" Finite State Machines" width="600" height="400"> </p> 
@@ -94,9 +94,9 @@ We did decide to use these states for these lessons.When we only have five state
 
 We should probably clarify what we mean by these states: 
 
-* Let‘s assume that we are in the keep lane state. let me explain what this state means. The lane keep state attempts to stay in the current lane by staying near the center line for that lane. So thinking in freenet coordinates, we might just say that target d for the vehicle is whatever the d for the lane is and for the s direction, keep lane state attempts to drive at the vehicle's target speed when that's feasible, but when it's not, it will try to drive at whatever speed is safest for the lane.
+* Let‘s assume that we are in the keep lane state. let me explain what this state means. The lane keep state attempts to stay in the current lane by staying near the center line for that lane. So thinking in [freenet coordinates](https://github.com/A2Amir/Prediction-Phase-in-the-trajectory-generation-of-cars), we might just say that the target d for the vehicle is whatever the d for the lane is and for the s direction, keep lane state attempts to drive at the vehicle's target speed when that's feasible, but when it's not, it will try to drive at whatever speed is safest for the lane.
 
-* For lane changes the goal is to move from the initial lane to the target lane. The d behavior is what you might expect to move left or right as appropriate. the target d is the d for the corresponding lane to the left or right of the ego's current lane and for s, the same rules as lane keeping apply, the vehicle will try to drive at the target speed,but if that's not feasible, then it will drive at whatever speed is safe for the initial lane.
+* For lane changes the goal is to move from the initial lane to the target lane. The d is what you might expect to move left or right as appropriate. the target d is the d for the corresponding lane to the left or right of the ego's current lane and for s, the same rules as lane keeping apply, the vehicle will try to drive at the target speed,but if that's not feasible, then it will drive at whatever speed is safe for the initial lane.
 
 
 
