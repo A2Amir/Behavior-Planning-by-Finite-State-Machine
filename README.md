@@ -28,17 +28,17 @@ Look at the picture below and 5 potential json representations of output and see
 
 
 <p align="center"> <img src="./img/3.png" style="center;" alt="potential json representations of output" > </p> 
-To see the tree potential json representations of outputs ckick  <a href="https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/img/4.png" rel="Here">Here</a>
+To see the tree potential json representations of outputs ckick  <a href="https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/img/4.png" rel="Here">here</a>.
 
 
 
 ## 3.	The Behavior Problem
-The behavior planner is currently a black box, which takes as input a map of the world,a route to the destinations,and predictions about what other static and dynamic obstacles are likely to do and it produces as output a adjusted maneuver for the vehicle which the trajectory planner is responsible for reaching collision-free, smooth, and safe.The goal of this repository is to open up this black box and learn how to implement a behavior planner.
+The behavior planner is currently a black box, which takes as input a map of the world,a route to the destinations,and predictions about what other static and dynamic obstacles are likely to do and it **produces as output a adjusted maneuver for the vehicle which the trajectory planner is responsible for reaching collision-free, smooth, and safe**.The goal of this repository is to open up this black box and learn how to implement a behavior planner.
 
 <p align="right"> <img src="./img/5.png" style="right;" alt=" The Behavior Problem" width="600" height="300"> </p> 
 
  
-The responsibilities of the behavior module are to suggest maneuvers which are feasible, as safe as possible, legal, and efficient. What the behavior planner is not responsible for are execution details and collision avoidance.
+**The responsibilities of the behavior module are to suggest maneuvers which are feasible, as safe as possible, legal, and efficient. What the behavior planner is not responsible for are execution details and collision avoidance.**
 
 The approach to behavior planning we are going to teach in is the same one used by most of the vehicles, including the winning one in the DARPA Urban Challenge. In fact, it's the approach to behavior planning that Mercedes used in their Bertha Benz Drive,which you can see is capable of handling complex traffic situations like navigating intersections and dense urban traffic.
 
