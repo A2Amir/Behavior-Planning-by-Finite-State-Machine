@@ -212,7 +212,7 @@ When we're far from the goal we have lots of time to get into the goal lane. As 
 
 *	Δd=d<sub>G</sub> −d<sub>LC/KL</Sub>: the lateral distance between the goal lane and the options being considered. In this case Δd<sub>KL</sub>=d<sub>G</sub>−d<sub>KL</sub> would be zero and Δd<sub>LC</sub>=d<sub>G</sub>−d<sub>CL</sub> would not. 
 
-In general we'd prefer to be closer to the goal lane. Which means the cost should be bigger when delta d is bigger. Mathematically we could say "Cost associated with lane choice should be proportional to delta d.
+In general we'd prefer to be closer to the goal lane, which means the cost should be bigger when delta d is bigger. Mathematically we could say "Cost associated with lane choice should be proportional to delta d.
 
 Therfore we want a cost function that penalizes large ∣Δd∣ and we want that penalty to be bigger when Δs is small and we want also to make sure that the maximum cost of this cost function never exceeds one and that the minimum never goes below zero, which shown below meet the criteria we want.
 
@@ -226,8 +226,10 @@ We designed a cost function to choose a lane when trying to reach a goal in high
 
  <p align="center"> <img src="./img/12.png" style="right;" alt="Cost Function - Lane Change Penalty" width="250" height="100"> </p> 
 
-Here, Δd was the lateral distance between the goal lane and the final chosen lane, and Δs was the longitudinal distance from the vehicle to the goal but one important change, the finite state machine we use for vehicle behavior includes states for planning a lane change right or left (PLCR or PLCL), and the cost function should incorporate this information. We will provide the following four inputs to the function:
+Here, Δd was the lateral distance between the goal lane and the final chosen lane and Δs was the longitudinal distance from the vehicle to the goal but one important change, the finite state machine we use for vehicle behavior includes states for planning a lane change right or left (PLCR or PLCL), and the cost function should incorporate this information. We will provide the following four inputs to the function:
+
 * Intended lane: the intended lane for the given behavior. For PLCR, PLCL, LCR, and LCL, this would be the one lane over from the current lane.
+
 * Final lane: the immediate resulting lane of the given behavior. For LCR and LCL, this would be one lane over.
 * The Δs distance to the goal.
 * The goal lane.
