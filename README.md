@@ -28,7 +28,7 @@ Look at the picture below and 5 potential json representations of output and see
 
 
 <p align="center"> <img src="./img/3.png" style="center;" alt="potential json representations of output" > </p> 
-To see 3 potential json representations of output ckick  <a href="https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/img/4.png" rel="Here">Here</a>
+To see the tree potential json representations of outputs ckick  <a href="https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/img/4.png" rel="Here">Here</a>
 
 
 
