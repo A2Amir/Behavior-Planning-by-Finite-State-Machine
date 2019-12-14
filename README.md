@@ -175,8 +175,7 @@ For the sake of simplicity:
 
 * We will adjust the importance of each cost function later by adjusting the weights.
 
-Let's draw the speed limit for the road we are on at point C. Well, we know that if we're going well above the speed limit that should be maximum cost (D) and maybe we want to set an ideal zero cost speed(B) that's slightly below the speed limit so that we have some buffer and then we can think about how much we want to penalize not moving at all.
-Obviously, not moving is bad, but maybe not as bad as breaking the speed limit, we would put it at point A.
+Let's draw the speed limit for the road we are on at the point C. Well, we know that if we're going well above the speed limit that should be maximum cost (D) and maybe we want to set an ideal zero cost speed(B) that's slightly below the speed limit so that we have some buffer (the gap between B and C) and then we can think about how much we want to penalize not moving at all. Obviously, not moving is bad, but maybe not as bad as breaking the speed limit, we would put it at the point A.
 
 We can again arbitrarily connect these points with linear function and the flat maximum cost for anything above the speed limit. 
 
@@ -185,7 +184,7 @@ We can again arbitrarily connect these points with linear function and the flat 
 
 Now, in practice, we might actually want to parametrize some of these quantities so that we could later adjust them until we got the right behavior.
 
-* first, we might define a parameter called Stop Cost for the zero-velocity case
+* First, we might define a parameter called Stop Cost for the zero-velocity case.
 * A parameter called buffer velocity which would probably be a few miles per hour.
 
 Then, our overall cost function has three domains:
