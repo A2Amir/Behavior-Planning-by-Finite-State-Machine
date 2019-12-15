@@ -311,7 +311,7 @@ our vehicle are its position, velocity, and acceleration. It can be helpful to k
 Let's walk through an example. Say we want to think about the classes (Feasibility, Safety, Lagality, Comfort, Efficeiency) of cost functions  and to make it easier, to keep everything straight, let's think in terms of position, velocity, and acceleration.
 
 
-The binary "Are we exceeding the speed?" cost function goes to point 1, then the cost function that wanted to keep us close to the speed limit goes to point 2. We also might want to try to drive at a speed that's close to the average speed of traffic, for safety reasons, even if that speed is above or below the speed limit and that goes to point 3.
+The binary "Are we exceeding the speed?" cost function goes to point 1 in the image below, then the cost function that wanted to keep us close to the speed limit goes to point 2. We also might want to try to drive at a speed that's close to the average speed of traffic, for safety reasons, even if that speed is above or below the speed limit and that goes to point 3.
 
 In the position column, we'd have an obvious feasibility concern which is collision avoidance (4) (We can't drive somewhere if there is already a car there). For safety reasons,we would want the buffer distance,which tries to keep us far from other vehicles (5), and the cost function which checks to make sure we are driving on the road(6) near the center of our lane(7) and in a lane that's close to our goal lane (8). 
 
