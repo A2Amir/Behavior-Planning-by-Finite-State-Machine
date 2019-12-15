@@ -256,7 +256,7 @@ double goal_distance_cost(int goal_lane, int intended_lane, int final_lane,doubl
 ~~~
 
 #### 5.2.4.Implementing [the Speed Cost Function](https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/C%2B%2B/CostSpeed.cpp) in C++
-In most situations, a single cost function will not be sufficient to produce complex vehicle behavior. The goal with this section is to create a cost function that would make the vehicle drive in the fastest possible lane, given several behavior options. We will provide the following four inputs to the function:
+In most situations, a single cost function will not be sufficient to produce complex vehicle behavior. The goal with this section is to implement a cost function that would make the vehicle drive in the fastest possible lane, given several behavior options. We will provide the following four inputs to the function:
 
 * Target speed: Currently set as 10 (unitless), the speed at which you would like the vehicle to travel.
 * Intended lane: the intended lane for the given behavior. For PLCR, PLCL, LCR, and LCL, this would be the one lane over from the current lane.
