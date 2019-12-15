@@ -287,11 +287,9 @@ double inefficiency_cost(int target_speed,int intended_lane,int final_lane,const
 Designing cost functions is difficult and getting them all to cooperate to produce reasonable vehicle behavior is hard. Some of the difficulties associated with cost functions design include solving new problems without unsolving old ones.
 
 When you're working on a self-driving car, you may find that the vehicle is behaving reasonably
-well except for some particular situations. Maybe it's not being aggressive enough about making left turns at traffic lights. So, in an effort to solve this problem, you either add new cost functions, tweak existing ones, or modify the weights. But every time you do, there's a chance that you will introduce
-some breaking change into something that already works.
+well except for some particular situations (Maybe it's not being aggressive enough about making left turns at traffic lights). In an effort to solve this problem, you either add new cost functions, tweak existing ones, or modify the weights. But every time you do, there's a chance that you will introduce some breaking change into something that already works.
 
-In practice, we solve this through **regression testing**, where we define some set of situations,
-each of which has an expected behavior. Then, whenever we make a change, we simulate the vehicle in all of our test cases and make sure that it still behaves as expected. We won't say more about testing here,but it is an important part of developing software in a safety-critical application.
+In practice, we solve this through **regression testing**, where we define some set of situations, each of which has an expected behavior. Then, whenever we make a change, we simulate the vehicle in all of our test cases and make sure that it still behaves as expected. We won't say more about testing here,but it is an important part of developing software in a safety-critical application.
 
 The next difficulty is balancing costs of drastically different magnitudes because, we want to get to our destination efficiently, but if we are in a situation where safety is an issue, we want to solve that problem and not think about efficiency at all.
 
@@ -299,13 +297,11 @@ One way to do that is to have weights which reflect the type of problem the cost
 So we want to most heavily penalize any behavior which simply isn't possible due to physics, then we want to think about safety, legality, comfort and only once those are satisfied, we want to think about efficiency. We also may want to adjust the relative importance of these weights depending on situation. If a light turns red, for example, legality becomes a much more relevant concern
 than when we engage in normal highway driving. this leads us to our last difficulty, reasoning about individual cost functions.
 
-Ideally, each cost function will serve a very specific responsibility, which is something we didn't do in our earlier example of a speed cost function. We were trying to balance our desire to drive quickly,
-which has to do with efficiency, with our desire to not exceed the speed limit, which is legality.
+Ideally, each cost function will serve a very specific responsibility, which is something we didn't do in our earlier example of a speed cost function. We were trying to balance our desire to drive quickly,which has to do with efficiency, with our desire to not exceed the speed limit, which is legality.
 
 In practice, we might want to define several cost functions associated with vehicle speed. In which case we might have a binary cost function which just checks to see if we are breaking the speed limit and the continuous cost function which pulls us towards our target speed.
 
-By assigning each cost function to a very specific role, like safety versus legality versus efficiency, we can then standardize the output of all cost functions to be between -1 and 1. Additionally, it's helpful to parametrize whenever possible. This allows us to use some parameter optimization technique like
-gradient descent along with our set of regression tests to programmatically tweak our cost functions.
+By assigning each cost function to a very specific role, like safety versus legality versus efficiency, we can then standardize the output of all cost functions to be between -1 and 1. Additionally, it's helpful to parametrize whenever possible. This allows us to use some parameter optimization technique like gradient descent along with our set of regression tests to programmatically tweak our cost functions.
 
 Finally, thinking in terms of vehicle state is helpful. The things we can indirectly control about
 our vehicle are its position, velocity, and acceleration. It can be helpful to keep these in mind when coming up with cost functions.
