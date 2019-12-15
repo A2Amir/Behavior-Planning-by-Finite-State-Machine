@@ -352,16 +352,17 @@ As before explained, we might want to define several cost functions associated w
 
 ## 7.Scheduling Compute Time
 
-the Behavior Module updates on a lower frequency than for example the Trajectory Module.
+The Behavior Module updates on a lower frequency than for example the Trajectory Module.
 This is due to the fact that the high level decisions made in the behavior module spend a longer time horizon and just don't change as frequently but the Trajectory Module does still count on our decisions.
-It's important that the over all system architecture doesn't allow for a comparatively slow module like the behavior planner to clock up the proper functioning of the other faster components. Let's take a second to talk about what's known as a scheduling problem and how it can be handled in the self-driving car. The diagram below shows what happens during two processing cycles of the Behavior Module.
+
+It's important that the over all system architecture doesn't allow for a comparatively slow module like the behavior planner to clock up the proper functioning of the other faster components. Let's take about what's known as a scheduling problem and how it can be handled in the self-driving car. The diagram below shows what happens during two processing cycles of the Behavior Module.
 
 
 <p align="right"> <img src="./img/22.png" style="right;" alt="Scheduling Compute Time" width="600" height="300"> </p> 
 
-As you can see, the Prediction Module updates with a higher frequency than Behavior.Trajectory is even higher. But focus your attention on what happens after behavior has completed its first cycle.
+As you can see, the Prediction Module updates with a higher frequency than Behavior.Trajectory is even higher. But focus your attention on what happens after behavior has completed its first cycle (A).
 
-To begin its second cycle, the behavior module needs data from prediction and localization. For localization, it's easy in theory since at this instant it will have some fresh data and behavior could just use that. But what about for prediction. It's actually right in the middle of an update cycle (A). Should behavior just wait until prediction is done? No. If we start waiting then we block up the pipeline for downstream components. The answer is to use data from here and accept that it's a little stale.
+To begin its second cycle, the behavior module needs data from prediction and localization. For localization, it's easy in theory since at this instant it will have some fresh data and behavior could just use that. But what about for prediction. It's actually right in the middle of an update cycle (A). Should behavior just wait until prediction is done? No. If we start waiting then we block up the pipeline for downstream components. The answer is to use data from here(A) and accept that it's a little stale.
 
 
 
