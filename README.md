@@ -377,3 +377,6 @@ In this section is implemented a behavior planner and cost functions for highway
 
 The objective is to navigate through traffic to the goal in as little time as possible. Note that the goal lane and s value, as well as the traffic speeds for each lane, are set in [main.cpp](https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/C%2B%2B/BehaviorPlanner/main.cpp). Since the goal is in the slowest lane, in order to get the lowest time, one of the two cost functions that are implemented in the previous section and weights to drive in faster lanes when appropriate will be used. Two suggested cost functions have been implemented based on previous section, in [cost.cpp](https://github.com/A2Amir/Behavior-Planning-by-Finite-State-Machine/blob/master/C%2B%2B/BehaviorPlanner/cost.cpp).
 
+#
+
+<p align="center">Amir Ziaee</p> 
