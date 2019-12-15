@@ -320,7 +320,7 @@ In the position column, we'd have an obvious feasibility concern which is collis
 
 For acceleration, we'd first want to make sure we only consider behaviors that the car can execute (9), and then we'd want to avoid having any rapid changes in acceleration because those are perceived as uncomfortable (10).
 
-Consider a merge onto a highway like below, for example. This is a potentially dangerous situation where we really want to get up to traffic speed as quickly as possible. the cost function at point 3,4,5 may become more relevant than it normally is.
+Consider a merge onto a highway like below, for example. This is a potentially dangerous situation where we really want to get up to traffic speed as quickly as possible. the cost function at the points 3,4,5 may become more relevant than it normally is.
 
 <p align="right"> <img src="./img/16.png" style="right;" alt="difficulties associated with cost functions design " width="600" height="250"> </p> 
 
