@@ -4,6 +4,7 @@
 ## 1.	Introduction
 If you think about the over all flow of data in a self-driving car operating on the fastest time scales you have: 
 
+
 1.	First [Motion](https://github.com/A2Amir/Motion-Model-of-a-Car) Control
 2.	Than  you have [Sensor Fusion](https://github.com/A2Amir/Extended-Kalman-Filter-for-Sensor-Fusion-Radar-and-Lidar).
 3.	Just lower than you have [localization](https://github.com/A2Amir/Implement-a-particle-filter-in-the-context-of-Cplus) and trajectory planning.
