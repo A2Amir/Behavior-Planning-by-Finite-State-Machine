@@ -1,5 +1,5 @@
 # Behavior Planning by Finite State Machine 
- In this section I am going to teach an approach to behavior planning that uses something called a Finite State Machine to solve the behavior planning problem. 
+**In this section I am going to teach an approach to behavior planning that uses something called a Finite State Machine to solve the behavior planning problem. **
  
 ## 1.	Introduction
 If you think about the over all flow of data in a self-driving car operating on the fastest time scales you have: 
